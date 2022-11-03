@@ -10,7 +10,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/gocolly/colly/v2"
+	"github.com/eco-hunt/colly/v2"
 )
 
 // "id": user id, "after": end cursor
@@ -87,7 +87,7 @@ func main() {
 	outputDir := fmt.Sprintf("./instagram_%s/", instagramAccount)
 
 	c := colly.NewCollector(
-		//colly.CacheDir("./_instagram_cache/"),
+		// colly.CacheDir("./_instagram_cache/"),
 		colly.UserAgent("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"),
 	)
 

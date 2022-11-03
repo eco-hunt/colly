@@ -6,7 +6,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/gocolly/colly/v2"
+	"github.com/eco-hunt/colly/v2"
 )
 
 func main() {

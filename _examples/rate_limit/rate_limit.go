@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/gocolly/colly/v2"
-	"github.com/gocolly/colly/v2/debug"
+	"github.com/eco-hunt/colly/v2"
+	"github.com/eco-hunt/colly/v2/debug"
 )
 
 func main() {
@@ -23,7 +23,7 @@ func main() {
 	c.Limit(&colly.LimitRule{
 		DomainGlob:  "*httpbin.*",
 		Parallelism: 2,
-		//Delay:      5 * time.Second,
+		// Delay:      5 * time.Second,
 	})
 
 	// Start scraping in five threads on https://httpbin.org/delay/2
