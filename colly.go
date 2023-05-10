@@ -40,12 +40,13 @@ import (
 	"github.com/PuerkitoBio/goquery"
 	"github.com/antchfx/htmlquery"
 	"github.com/antchfx/xmlquery"
-	"github.com/eco-hunt/colly/v2/debug"
-	"github.com/eco-hunt/colly/v2/storage"
 	"github.com/kennygrant/sanitize"
 	whatwgUrl "github.com/nlnwa/whatwg-url/url"
 	"github.com/temoto/robotstxt"
 	"google.golang.org/appengine/urlfetch"
+
+	"github.com/eco-hunt/colly/v2/debug"
+	"github.com/eco-hunt/colly/v2/storage"
 )
 
 // A CollectorOption sets an option on a Collector.
@@ -1059,6 +1060,17 @@ func (c *Collector) SetProxyFunc(p ProxyFunc) {
 		c.backend.Client.Transport = &http.Transport{
 			Proxy:             p,
 			DisableKeepAlives: true,
+		}
+	}
+}
+
+func (c *Collector) SetCompressionDisabled(disabled bool) {
+	t, ok := c.backend.Client.Transport.(*http.Transport)
+	if c.backend.Client.Transport != nil && ok {
+		t.DisableCompression = disabled
+	} else {
+		c.backend.Client.Transport = &http.Transport{
+			DisableCompression: disabled,
 		}
 	}
 }
